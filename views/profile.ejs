@@ -1,0 +1,172 @@
+<% include partials/header %>
+
+
+
+<div class="container-fluid">
+
+		<div class="purple">
+			<div class="row">
+			<div class="col-3">
+				<div class="container mb-4 mt-4">
+					<img class="rounded-circle mx-auto d-block" src="<%=profile.image%>" width="200px" height="200px">
+
+				</div>
+				<h3 class="profiletext"><%=profile.username%><a href="/profile/update"><span class="badge badge-notify badge-edit"> <i class="fas fa-edit"></i></span></a></h3>
+				<p class="profiletext"><%=profile.job%></p>
+				
+				<div class="text-center mt-4">
+				<button type="button" class="btn  rec-button green">Follow</button>
+				<button type="button" class="btn  rec-button green">Message</button>
+				</div>
+				<div class="row">
+				<div class="col-6">
+				<p class="font-weight-500 mt-4 profile-info-white"><i class="fas fa-map-marker mr-1"> </i> Location: </p>
+				<p class="font-weight-500 profile-info-white"><i class="fas fa-plane mr-1 "> </i >Total Trips: </p>
+				<p class="font-weight-500 profile-info-white"><i class="fas fa-thumbtack mr-1"> </i> Favorite Place: </p>
+				</div>
+				<div class="col-6">
+				<p class="font-weight-bold mt-4 profile-info-grey"><%=profile.location%></p>
+				<p class="font-weight-bold profile-info-grey"><%=profile.totalTrips%></p>
+				<p class="font-weight-bold profile-info-grey"><%=profile.favoritePlace%></p>
+				</div>
+				</div>
+				<h4 class="profile-info-white mt-4">About Me</h4>
+				<p class="profile-info-white"><%=profile.aboutMe%></p>
+				<h4 class="profile-info-white mt-4">Interests</h4>
+				<% profile.stories.forEach(function(story) { %>
+					<a href="/interests/<%=profile.stories.info%>">
+					<button type="button" class="btn btn-sm btn-outline-light rec-button <%=story.color%>-outline mt-2"><%=story.info%></button></a>
+				<% }); %>
+				</div>
+			<div class="col-9">
+			
+				<div class="favoritePlace" style="background-image: url(https://images.unsplash.com/photo-1493515114968-cd0f4e52bf18?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ca565172eea242ce8e26bf9770b47853&auto=format&fit=crop&w=1350&q=8);">
+					<div class="container">
+
+					<div class="row align-self-start">
+						<div class="col">
+							<h1>Tokyo, Japan</h1>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-8">
+						<div class="card mt-4">
+							<div class="card-header">
+								<p class="font-weight-bold text-center text-muted mb-0">Add New Story</p>
+							</div>
+							<form action="/story" method="Post">
+							<div class="card-body pb-0">
+								  <div class="">
+								  	<div class="form-group">
+								  	<input type="text" class="form-control" name="story[title]" placeholder="Title">
+								  	</div>
+								    <textarea class="form-control" name="story[message]" rows="4" placeholder="<%=profile.interests%>" style="resize: none;"></textarea>
+								  </div>
+							</div>
+							<div class="card-body mt-0">
+								<div class="row">
+										<div class="col text-left mt-2">
+											<i class="fas fa-file-image green-icon mr-3  ml-3 icon-md"></i>
+											<i class="fas fa-map-marker-alt green-icon mr-3  ml-3 icon-md">
+											</i>
+										</div>
+										<div class="col align-content-end">
+											<div class="text-right mr-3">
+												<button class="btn btn-sm btn-outline-light rec-button blue-outline" type="submit"><i class="fab fa-telegram-plane green-icon mr-3 ml-1 icon-md"></i></button>
+											</div>
+										</div>
+								</div>
+							</div>
+							</form>
+						</div>
+
+						<% profile.stories.reverse().forEach(function(story) { %>
+						<div class="card mt-4">
+							<div class="card-header">
+							<div class="row">
+								<div class="col">
+								<p class="font-weight-bold text-left text-muted mb-0"><%=story.title%></p>
+								</div>
+								<div class="col">
+								<p class="font-weight-400 text-right text-muted mb-0"><%= timeAgo(story.created);%></p>
+								</div>
+							</div>
+							</div>
+							<div class="card-body">
+
+								<p><%=story.message%></p>
+							</div>
+							<div class="card-footer bg-transparent">
+								<div class="row">
+										<div class="col">
+										<i class="fas fa-map-marker-alt green-icon mr-3  ml-3 icon-md"></i><%=story.location%>
+										</div>
+										<div class="col align-content-end">
+											<div class="text-right">
+												<a href="/story/<%=story.id%>/vote"><i class="fas fa-heart green-icon mr-3 icon-md"></i><</a>
+												<i class="fas fa-share green-icon mr-3 icon-md"></i>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+						<% }); %>
+					</div>
+
+					<div class="col-4">
+						<div class="blockrow green mt-4">
+							<h5 class="profiletext mt-2">My Recent Trips</h5>
+						</div>
+						<div class="row mt-3">
+							<div class="col">
+									<div class="img-thumbnail recent-trip p-0" style="background-image: URL(https://images.unsplash.com/photo-1440694997168-8ae4033554c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5830c2ffa85a9270872a6ff0371f047b&auto=format&fit=crop&w=500&q=60);">	
+									</div>
+									<div class="row">
+										<div class="col  profile-info-white  mt-2  ml-2 pt-1">
+											<p class="text-align-left">Seoul, South Korea</p>
+										</div>
+										<div class="col  profile-info-grey  mt-2 mr-2 pt-1 stars">
+											<p class="t"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col">
+									<div class="img-thumbnail recent-trip p-0" style="background-image: URL(https://images.unsplash.com/photo-1500297726361-1715d90aec00?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&);">
+									</div>
+									<div class="row">
+										<div class="col  profile-info-white  mt-2  ml-2 pt-1">
+											<p class="text-align-left">Ghangzhou, China</p>
+										</div>
+										<div class="col  profile-info-grey  mt-2 mr-2 pt-1 stars">
+											<p class="t"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="row mt-3">
+							<div class="col">
+									<div class="img-thumbnail recent-trip p-0" style="background-image: URL(https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=951dfc9eee0feb79b8707a24ff847620&auto=format&fit=crop&w=500&q=60);">
+									</div>
+									<div class="row">
+										<div class="col  profile-info-white  mt-2  ml-2 pt-1">
+											<p class="text-align-left">Phuket, Thailand</p>
+										</div>
+										<div class="col  profile-info-grey  mt-2 mr-2 pt-1 stars">
+											<p class="t"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+										</div>
+									</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</div>
+
+<% include partials/footer %>

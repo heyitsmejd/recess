@@ -1,0 +1,113 @@
+<% include ../partials/header %>
+
+
+
+<div class="container-fluid">
+
+		<div class="purple pt-5">
+				
+					<div class="container">
+						<h1>Update Profile</h1>
+						<form action="/profile/update/<%=profile._id%>?_method=PATCH" method="POST">
+						<div class="row">
+							<div class="col-3">
+								<div class="container mb-4 mt-4 profile-image">
+									<img class="rounded-circle mx-auto d-block" src="" width="200px" height="200px">
+									  <div class="middle">
+									  <label class="btn btn-sm btn-outline-light rec-button blue-outline mt-2">
+									  Upload
+									  <input type="file"  name="profile[image]" hidden>
+									  </label>
+									  </div>	
+								</div>	
+							</div>
+							<div class="col-4 offset-md-1">
+								
+								<div class="form-group mt-4">
+									<input type="text"  class="form-control form-dark" name="profile[job]" placeholder="What do you do?">
+								</div>
+								<div class="form-group">
+									<input type="text"  class="form-control form-dark" name="profile[location]" placeholder="Where are you from?">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control form-dark" name="profile[aboutMe]" placeholder="Tell us about you">
+								</div>
+								<div class="form-group">
+									<input type="text"  class="form-control form-dark" name="profile[favoritePlace]"
+									placeholder="Where's your favorite place to go?">
+								</div>
+							</div>
+							<div class="col 4">
+							<div class="form-group mt-4">
+								<div class="row">
+									<div class="col-6 offset-2">
+										<div class="form-group">
+											<h5 class="profile-info-grey">Hide Profile</h5>
+										</div>
+										<div class="form-group">
+											<h5 class="profile-info-grey pt-3">Allow Comments</h5>
+										</div>
+										<div class="form-group">
+											<h5 class="profile-info-grey pt-3">Hide trips</h5>
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="form-group ">
+											<label class="switch">
+												<input type="checkbox" name="profile[hideProfile]" <%if(profile.hideProfile == "on") { %> checked <%}%> >  
+												<span class="slider round"></span>
+											</label>
+										</div>
+										<div class="form-group pt-1">
+											<label class="switch">
+												<input type="checkbox" name="profile[allowComments]" <%if(profile.allowComments == "on") { %> checked <%}%>>
+												<span class="slider round"></span>
+											</label>
+										</div>
+										<div class="form-group">
+											<label class="switch">
+												<input type="checkbox" name="profile[hideTrips]" <%if(profile.hideTrips == "on") { %> checked <%}%>>
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="row">
+							<div class="col">
+							<h4>Interests</h4>
+								<div class="btn-group-toggle" data-toggle="buttons">
+								  <label class="btn active btn-sm btn-outline-light rec-button blue-outline mt-2">
+								    <input type="checkbox" checked autocomplete="off" name="profile.interests[swimming]"> Swimming
+								  </label>
+								</div>
+								<div class="btn-group-toggle" data-toggle="buttons">
+								  <label class="btn active btn-sm btn-outline-light rec-button blue-outline mt-2">
+								    <input type="checkbox" checked autocomplete="off" name="profile.interests[snorkeling]"> Snorkeling
+								  </label>
+								</div>
+								<div class="btn-group-toggle" data-toggle="buttons">
+								  <label class="btn active btn-sm btn-outline-light rec-button red-outline mt-2">
+								    <input type="checkbox" checked autocomplete="off" name="profile.interests[food]"> Food
+								  </label>
+								</div>
+								<div class="btn-group-toggle" data-toggle="buttons">
+								  <label class="btn active btn-sm btn-outline-light rec-button orange-outline mt-2">
+								    <input type="checkbox" checked autocomplete="off" name="profile.interests[hiking]"> Hiking
+								  </label>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-5 mb-5">
+							<div class="col">
+								<button class="btn btn-info">Update</button>
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

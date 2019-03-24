@@ -1,0 +1,79 @@
+
+<% include ./partials/header %>
+
+<div class="container-fluid py-3 headerbg">
+
+	<div class="row">
+		<div class="col-4 offset-2 tagline ">
+			<h1> It's time for a break. </h1>
+			<h4> Plan the perfect vacation holiday today </h4>
+		</div>
+		<div class="col-3">
+			<div class="img-thumbnail xtra-margin">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-10 offset-sm-1">
+							<form action="/login" method="POST">
+								<h5 class="mt-2"><img src="recess.svg"></h5>
+									<div class="form-group right-inner-addon">
+										<input class="form-control" type="text" name="username" placeholder="Username">
+									</div>
+									<div class="form-group right-inner-addon">
+										<input class="form-control" type="password" name="password" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-block btn-info" value="submit">Login</button>
+									</div>
+							</form>
+							<p class="font-weight-bold text-center">OR</p>
+							<div class="form-group" style="font-size:3em;">
+								<button type="submit" class="btn btn-block btn-primary" value="submit">
+								<i class="fab fa-facebook-square align-self-left"></i> Continue with Facebook
+								</button>
+							</div>
+							<a  href="/forgot"><p class="text-center">Forgot your password?</p></a>
+							<hr>
+							<p class="text-center">Not a member yet? <a href="/register">Sign Up</a> </p>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid landerbottom">
+		<div class="row">
+			<div class="col-2 offset-2">
+				<div class="card landercard">
+					<div class="landericon"> <i class="fas fa-camera-retro"></i> </div>
+					<p class="text-center  font-weight-bold">View Amazing Trips</p>
+					<hr>
+					<p class="text-center">See all of the amazing trips our users have emjoyed</p>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="card landercard">
+					<div class="landericon"> <i class="fas fa-map-marker-alt"></i> </div>
+					<p class="text-center ">Pick Your Recess</p>
+					<hr>
+					<p class="text-center">Choose a place to kick back and relax among our spots</p>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="card landercard">
+					<div class="landericon"> <i class="far fa-smile"></i> </div>
+					<p class="text-center font-weight-bold">Your Trip, Your Way</p>
+					<hr>
+					<p class="text-center">Pick and choose what you want to do, when you want to do.</p>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="card landercard">
+					<div class="landericon"> <i class="fas fa-comments"></i> </div>
+					<p class="text-center ">Share Your Own Story</p>
+					<hr>
+					<p class="text-center">Show us your pictures, videos, and stories from your adventure</p>
+				</div>
+			</div>
+</div>
+<% include ./partials/footer %>

@@ -1,0 +1,35 @@
+
+
+<% include ../partials/header %>
+	<div class="container">
+	<h1 style="text-align: center">Edit Place</h1>
+	<div class="row">
+	
+		<div style="width:30%; margin: 20px auto">
+		<form action="/places/<%=place.id%>?_method=PUT" method="POST">
+			<div class="form-group">
+				<label>Place Name</label>
+				<input class="form-control" type="text" name="places[name]" value="<%=place.name%>">
+			</div>
+			<div class="form-group">
+				<label>Image</label>
+				<input class="form-control" type="text" name="places[image]" value="<%=place.image%>">
+			</div>
+			<div class="form-group">
+				<select class="form-control form-control-sm" name="places[country]" value="<%=place.country%>">
+				  <option>South Korea</option>
+				  <option>Japan</option>
+				  <option>Vietnam</option>
+				  <option>United States</option>
+				  <option>China</option>
+				</select>
+			</div>
+			<div class="form-group">
+						<button class="btn btn-lrg btn-success btn-block">Submit</button>
+			</div>
+		</form>
+		<a href="/places">Go Back</a>
+		</div>
+	</div>
+	</div>
+<% include ../partials/footer %>

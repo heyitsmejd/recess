@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+	<div class="container">
+			<form action="/places/<%=place%>/comments/<%=comment.id%>?_method=PUT" method="POST">
+			<h5 class="mt-5">Edit comment</h5>
+				<div class="form-group">
+					<label>Message</label>
+					<input class="form-control" type="text" name="comment[message]" value="<%=comment.message%>">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-info" value="submit">
+				</div>
+			</form>
+	</div>
+<% include ../partials/footer %>
